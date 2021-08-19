@@ -11,5 +11,14 @@ const body=`<!DOCTYPE html>
         <a href=/><h1>Greetings Earthlings</h1></a>
     </body>
 </html>`;
-const r=new Response(body, {status: 200, headers:{"Content-type":"text/html" } });
-addEventListener('fetch', e=>e.respondWith(r));
+addEventListener("fetch", (event) => {
+    event.respondWith(
+      new Response(body, {
+        status: 200,
+        headers: {
+          server: "denosr",
+          "content-type": "text/html",
+        },
+      }),
+    );
+  });
